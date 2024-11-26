@@ -1,30 +1,65 @@
+// Пользователь вводит прибыль фирмы за год (12 месяцев). Затем пользователь вводит диапазон
+// (например, 3 и 6 – поиск между 3-м и 6-м месяцем). Необходимо определить месяц, в котором прибыль была максимальной,
+// и месяц, в котором прибыль была минимальной, с учетом выбранного диапазона.
+
 #include <iostream>
-#include <algorithm>
+#include <limits>
 
 using namespace std;
 
 int main()
 {
-    int const SIZE = 10;
-    int arr[SIZE];
-
-    srand(time(NULL));
-
-    cout << "Your array of random numbers -> [ ";
+    int const SIZE = 12;
+    double arr[SIZE];
+    int start_diapazone, finish_diapazone;
 
     for (int i = 0; i < SIZE; i++)
     {
-        arr[i] = rand() % 75 - 50;
-        cout << arr[i] << ", ";
+        cout << "Enter the profit for the month " << (i + 1) << " -> " <<  endl;
+        cin >> arr[i];
+
+        while (cin.fail() || arr[i] <= 0)
+        {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Invalid input. \nEnter positive profit for the month -> " << endl;
+            cin >> arr[i];
+        }
     }
 
-    cout << "]";
+    do
+    {
+        cout << "Enter the start month (1-12) -> ";
+        cin >> start_diapazone;
 
-    int max_value = *max_element(arr, arr + SIZE);
-    int min_value = *min_element(arr, arr + SIZE);
+        cout << "Enter the end month (1-12) -> ";
+        cin >> finish_diapazone;
 
-    cout << "\nMaximum element in this list -> " << max_value << endl;
-    cout << "Minimum element in this list -> " << min_value << endl;
+        if (start_diapazone < 1 || finish_diapazone > SIZE || start_diapazone > finish_diapazone)
+        {
+            cout << "Invalid range! Please re-enter.\n";
+        }
+    } while (start_diapazone < 1 || start_diapazone > SIZE || finish_diapazone > start_diapazone || finish_diapazone < 1);
 
-    return 0;
+    double max_value = arr[start_diapazone - 1];
+    double min_value = arr[start_diapazone - 1];
+    int max_month = start_diapazone;
+    int min_month = start_diapazone;
+
+    for (int i = start_diapazone; i <= finish_diapazone; i++) {
+        if (arr[i - 1] > max_value) {
+            max_value = arr[i - 1];
+            max_month = i;
+        }
+
+        if (arr[i - 1] < min_value) {
+            min_value = arr[i - 1];
+            min_month = i;
+        }
+    }
+
+        cout << "\nMaximum profit: " << max_value << " in month " << max_month << endl;
+        cout << "Minimum profit: " << min_value << " in month " << min_month << endl;
+
+        return 0;
 }
