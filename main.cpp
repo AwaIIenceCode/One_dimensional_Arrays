@@ -1,41 +1,34 @@
-// var #1
+//Пользователь вводит длину сторон пятиугольника, каждая сторона заносится в массив.
+//Необходимо вычислить периметр пятиугольника (периметр – сумма всех сторон).
+
 #include <iostream>
+#include <limits>
 
 using namespace std;
 
 int main()
 {
-    int const SIZE = 10;
-    int arr[SIZE]{18,61,32,5,-4,8,69,23,37,14};
-
-    for (int i = SIZE; i--;)
-    {
-        cout << arr[i] << " ";
-    }
-
-    return 0;
-}
-// var #2
-#include <iostream>
-
-using namespace std;
-
-int main()
-{
-    int const SIZE = 10;
-    int arr[SIZE]{61,43,-12,54,-4,0,43,2,15,-4};
-    int reversed[SIZE];
+    int const SIZE = 5;
+    int arr[SIZE];
+    int perimeter = 0;
 
     for (int i = 0; i < SIZE; i++)
     {
-        reversed[i] = arr[SIZE - 1 - i];
+        cout << "Enter " << (i + 1) << " the side size ->" << endl;
+        cin >> arr[i];
+
+        while (cin.fail() || arr[i] <= 0)
+        {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Invalid input. \nEnter a positive number for side " << (i + 1) << " -> " << endl;
+            cin >> arr[i];
+        }
+
+        perimeter += arr[i];
     }
 
-    for (int i = 0; i < SIZE; i++)
-    {
-        cout << reversed[i] << " ";
-    }
+    cout << "\nThe perimeter of a pentagon is: " << perimeter << endl;
 
     return 0;
 }
-
