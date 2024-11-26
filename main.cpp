@@ -1,31 +1,30 @@
 #include <iostream>
+#include <algorithm>
 
 using namespace std;
 
 int main()
 {
-   int const SIZE = 6;
-   double arr[SIZE];
-   double company_income = 0;
+    int const SIZE = 10;
+    int arr[SIZE];
 
-   for (int i = 0; i < SIZE; i++)
-   {
-       cout << "Enter the firm's revenue for month " << (i + 1) << " ->" << endl;
-       cin >> arr[i];
+    srand(time(NULL));
 
-       while (arr[i] < 0)
-       {
-           cout << "Revenue cannot be negative. Please re-enter -> " << endl;
-           cin >> arr[i];
-       }
-   }
-//I can put it in one loop, but it will be better for code readability, although I don't know about optimization.
-   for (int i = 0; i < SIZE; i++)
-   {
-       company_income += arr[i];
-   }
+    cout << "Your array of random numbers -> [ ";
 
-    cout << "\nTotal company income for 6 months: " << company_income << endl;
+    for (int i = 0; i < SIZE; i++)
+    {
+        arr[i] = rand() % 75 - 50;
+        cout << arr[i] << ", ";
+    }
+
+    cout << "]";
+
+    int max_value = *max_element(arr, arr + SIZE);
+    int min_value = *min_element(arr, arr + SIZE);
+
+    cout << "\nMaximum element in this list -> " << max_value << endl;
+    cout << "Minimum element in this list -> " << min_value << endl;
 
     return 0;
 }
