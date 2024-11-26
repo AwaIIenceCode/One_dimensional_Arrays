@@ -35,11 +35,11 @@ int main()
         cout << "Enter the end month (1-12) -> ";
         cin >> finish_diapazone;
 
-        if (start_diapazone < 1 || finish_diapazone > SIZE || start_diapazone > finish_diapazone)
+        if (start_diapazone < 1 || start_diapazone > SIZE || finish_diapazone < 1 || finish_diapazone > SIZE || start_diapazone > finish_diapazone)
         {
             cout << "Invalid range! Please re-enter.\n";
         }
-    } while (start_diapazone < 1 || start_diapazone > SIZE || finish_diapazone > start_diapazone || finish_diapazone < 1);
+    } while (start_diapazone < 1 || start_diapazone > SIZE || finish_diapazone < 1 || finish_diapazone > SIZE || start_diapazone > finish_diapazone);
 
     double max_value = arr[start_diapazone - 1];
     double min_value = arr[start_diapazone - 1];
