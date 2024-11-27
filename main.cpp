@@ -42,13 +42,16 @@ int main()
     int max_month = start_diapazone;
     int min_month = start_diapazone;
 
-    for (int i = start_diapazone; i <= finish_diapazone; i++) {
-        if (arr[i - 1] > max_value) {
+    for (int i = start_diapazone; i <= finish_diapazone; i++)
+    {
+        if (arr[i - 1] > max_value)
+        {
             max_value = arr[i - 1];
             max_month = i;
         }
 
-        if (arr[i - 1] < min_value) {
+        if (arr[i - 1] < min_value)
+        {
             min_value = arr[i - 1];
             min_month = i;
         }
