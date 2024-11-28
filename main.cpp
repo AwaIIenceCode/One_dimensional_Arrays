@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-    int const SIZE = 10;
+    const int SIZE = 10;
     int arr[SIZE];
 
     srand(time(NULL));
