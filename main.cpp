@@ -6,7 +6,7 @@ using namespace std;
 
 int main()
 {
-    int const SIZE = 12;
+    const int SIZE = 12;
     int arr[SIZE];
     int max_value, min_value;
     int max_index = 0, min_index = 0;
