@@ -4,7 +4,7 @@ using namespace std;
 
 int main()
 {
-   int const SIZE = 6;
+   const int SIZE = 6;
    double arr[SIZE];
    double company_income = 0;
 
