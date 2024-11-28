@@ -117,10 +117,20 @@ int main()
 
     double sum_between_first_and_last_negative = 0;
 
-    for (int i = first_negative_element + 1; i < last_negative_element; i++)
+    if (first_negative_element == -1 || last_negative_element == -1)
     {
-        sum_between_first_and_last_negative += arr[i];
+        cout << "No negative elements found, sum between first and last negative = 0" << endl;
     }
+
+    else
+    {
+        for (int i = first_negative_element + 1; i < last_negative_element; i++)
+        {
+            sum_between_first_and_last_negative += arr[i];
+        }
+    }
+
+//finish program________________________________________________________________________________________________________
 
     cout << "\n1 - Sum of negative numbers -> " << negative_sum << endl;
     cout << "2 - The product of elements that are between min and max elements -> " << fixed << setprecision(2) << production_between << endl;
