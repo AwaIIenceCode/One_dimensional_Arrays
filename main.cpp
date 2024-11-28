@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-    int const SIZE = 5;
+    const int SIZE = 5;
     int arr[SIZE];
     int perimeter = 0;
 
