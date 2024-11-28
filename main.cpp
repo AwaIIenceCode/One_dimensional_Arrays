@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-    int const SIZE = 12;
+    const int SIZE = 12;
     double arr[SIZE];
     int start_diapazone, finish_diapazone;
 
